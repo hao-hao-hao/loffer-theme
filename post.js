@@ -26,7 +26,7 @@ const PostTemplate = (props) => {
                                 {props.post.metas.tags.map((tag, index) => {
                                     return (
                                         <li key={index}>
-                                        <Link to={"/?tags=" + tag}>
+                                        <Link to={"/posts/?tags=" + tag}>
                                             {tag}
                                         </Link>
                                     </li>
