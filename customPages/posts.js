@@ -40,7 +40,7 @@ const Posts = (props) => {
                         return (
                             <article key={index} className="post">
                                 <h1>
-                                    <Link to={md.link}>Pinned: {md.title}</Link>
+                                    <Link to={"/"+md.link}>Pinned: {md.title}</Link>
                                 </h1>
 
                                 <div className="meta">
@@ -73,7 +73,7 @@ const Posts = (props) => {
                         return (
                             <article key={index} className="post">
                                 <h1>
-                                    <Link to={md.link}>{md.title}</Link>
+                                    <Link to={"/"+md.link}>{md.title}</Link>
                                 </h1>
 
                                 <div className="meta">
