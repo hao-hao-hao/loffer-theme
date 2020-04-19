@@ -1,14 +1,17 @@
 
 import Posts from "./posts";
+import Config from "../../_config";
 
 const CustomPages = {
-    "home":{
-        "title":"Home",
-        "component": Posts
+    "home": {
+        "title": "Home",
+        "component": Posts,
+        "description": Config.description
     },
     "posts": {
         "title": "Posts",
-        "component": Posts
+        "component": Posts,
+        "description": Config.description
     }
 }
 
