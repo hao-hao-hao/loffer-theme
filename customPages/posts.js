@@ -40,7 +40,7 @@ const Posts = (props) => {
                         return (
                             <article key={index} className="post">
                                 <h1>
-                                    <Link to={md.link}>{md.title}</Link>
+                                    <Link to={md.link}>Pinned: {md.title}</Link>
                                 </h1>
 
                                 <div className="meta">
@@ -66,26 +66,6 @@ const Posts = (props) => {
                                         })}
                                     </ul>
                                 </div>
-
-                                {
-                                    md.metas.coverimage.length > 0 ?
-                                        (
-                                            <div className="thumbnail">
-                                                <img src={md.metas.coverimage} />
-                                            </div>
-                                        )
-                                        : (
-                                            <div className="thumbnail">
-                                            </div>
-                                        )
-                                }
-
-
-                                <div className="entry">
-                                    <p>{md.excerpt}</p>
-                                </div>
-
-                                <Link to={md.link} className="read-more">Read More</Link>
                             </article>
                         );
                     })}
