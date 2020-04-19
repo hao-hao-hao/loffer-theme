@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Posts = (props) => {
     var prev;
@@ -36,6 +36,59 @@ const Posts = (props) => {
                 {categories}
                 {tags}
                 <div className="posts">
+                    {props.pinnedPosts.items.map((md, index) => {
+                        return (
+                            <article key={index} className="post">
+                                <h1>
+                                    <Link to={md.link}>{md.title}</Link>
+                                </h1>
+
+                                <div className="meta">
+                                    <span className="date">
+                                        {md.metas.date}
+                                    </span>
+                                    {md.metas.categories.map((category, index) => {
+                                        return (
+                                            <span className="category" key={index}>
+                                                <Link to={"/categories/" + category}>{category}</Link>
+                                            </span>
+                                        );
+                                    })}
+                                    <ul className="tag">
+                                        {md.metas.tags.map((tag, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <Link to={"/posts/?tags=" + tag}>
+                                                        {tag}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </div>
+
+                                {
+                                    md.metas.coverimage.length > 0 ?
+                                        (
+                                            <div className="thumbnail">
+                                                <img src={md.metas.coverimage} />
+                                            </div>
+                                        )
+                                        : (
+                                            <div className="thumbnail">
+                                            </div>
+                                        )
+                                }
+
+
+                                <div className="entry">
+                                    <p>{md.excerpt}</p>
+                                </div>
+
+                                <Link to={md.link} className="read-more">Read More</Link>
+                            </article>
+                        );
+                    })}
                     {props.posts.items.map((md, index) => {
                         return (
                             <article key={index} className="post">
