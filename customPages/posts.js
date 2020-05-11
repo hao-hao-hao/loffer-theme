@@ -104,7 +104,7 @@ const Posts = (props) => {
                                     md.metas.coverimage.length > 0 ?
                                         (
                                             <div className="thumbnail">
-                                                <img src={md.metas.coverimage} />
+                                                <img src={md.metas.coverimage} alt={md.title} />
                                             </div>
                                         )
                                         : (

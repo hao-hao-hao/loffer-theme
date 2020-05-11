@@ -1,5 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const PostTemplate = (props) => {
     return (
@@ -26,16 +26,25 @@ const PostTemplate = (props) => {
                                 {props.post.metas.tags.map((tag, index) => {
                                     return (
                                         <li key={index}>
-                                        <Link to={"/posts/?tags=" + tag}>
-                                            {tag}
-                                        </Link>
-                                    </li>
+                                            <Link to={"/posts/?tags=" + tag}>
+                                                {tag}
+                                            </Link>
+                                        </li>
                                     );
                                 })}
 
                             </ul>
                         </div>
                         <div className="entry">
+                            {
+                                props.post.metas.coverimage.length > 0 ?
+                                    (
+                                        <p><img src={props.post.metas.coverimage} alt={props.post.title} /></p>
+                                    )
+                                    : (
+                                        <p></p>
+                                    )
+                            }
                             {props.content}
                         </div>
                         {props.disqus}
